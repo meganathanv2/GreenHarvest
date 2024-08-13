@@ -1,52 +1,95 @@
+
 .main-head {
+    background-color: #2b7a0b; 
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .main-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 50px;
-    background-color: #1cae40;
-    color: rgb(17, 17, 17);
-    font-size: 1.5rem;
-    font-weight: 400;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.main-nav {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .logo {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    justify-content: center;
     align-items: center;
-}
-
-.logo {
-    font-size: 1.5rem;
-    cursor: pointer;
+    padding-top: 25px;
+  }
+  
+  .menu ul {
+    list-style: none;
     display: flex;
-}
-
-.menu {
-    display: flex;
-}
-
-.menu ul {
-    display: flex;
-    list-style-type: none;
-    padding: 0;
     margin: 0;
-}
+    padding: 0;
+  }
+  
+  .menu ul li {
+    margin: 0 25px;
+    justify-content: space-evenly;
 
-.menu li {
-    margin-left: 20px;
-}
-
-.main-head a {
+  }
+  
+  .menu ul li a {
+    color: #fff;
     text-decoration: none;
-    color: rgb(17, 17, 17);
-}
-
-.main-head a:hover {
-    color: rgb(245, 243, 243);
-}
-
-.logo:hover {
-    color: rgb(245, 243, 243);
-}
+    font-size: 16px;
+    transition: color 0.3s ease;
+   
+  }
+  
+  .menu ul li a:hover {
+    color: #c7e596; 
+  }
+  
+  .menu ul li a.active {
+    color: #c7e596;
+  }
+  
+  .cart-link {
+    position: relative;
+  }
+  
+  .cart-link::after {
+    content: attr(data-count);
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #ff6b6b; 
+    color: white;
+    font-size: 12px;
+    padding: 2px 5px;
+    border-radius: 50%;
+    line-height: 1;
+  }
+  
+  @media (max-width: 768px) {
+    .menu ul {
+      flex-direction: column;
+      background-color: #2b7a0b;
+      position: absolute;
+      top: 50px;
+      right: 0;
+      width: 200px;
+      display: none;
+    }
+  
+    .menu ul.active {
+      display: flex;
+    }
+  
+    .menu ul li {
+      margin: 10px 0;
+    }
+  }
+  
+  .logout{
+    color: #fff;
+  }

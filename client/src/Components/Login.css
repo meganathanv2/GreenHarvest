@@ -1,0 +1,86 @@
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color:  #55e6ac;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .logo {
+    width: 60px;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .form {
+    width: 100%;
+  }
+  
+  .login-form {
+    margin-bottom: 20px;
+  }
+  
+  .email, .password {
+    display: block;
+    font-size: 14px;
+    color: #100f0f;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+  
+  input[type='email'], input[type='password'] {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  input[type='email']:focus, input[type='password']:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  .login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color:#04653b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .login-btn:hover {
+    background-color: #2ba38d;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+   
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .account{
+    font-size: 1.5rem;
+  }
+  

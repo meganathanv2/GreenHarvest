@@ -1,0 +1,10 @@
+.product{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    margin-left: 20px;
+}
