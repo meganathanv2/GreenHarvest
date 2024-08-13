@@ -8,12 +8,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './Components/Login';
 import SignUp from './Components/SignUp';
 import { ToastContainer, toast } from 'react-toastify';
+import Cart from './Components/Cart';
+
 
 
 
 function App() {
   const [cart, setCart] = useState([])
-  const token=useSelector((state)=>state.Token.token)
+  const token=useSelector((state)=>state.cart.token)
 
 
   return (
@@ -24,7 +26,9 @@ function App() {
           <Route path='/' element={<Product />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<SignUp />} />
-          {/* <Route path='/cart'element={<Cart />} /> */}
+          <Route path='/cart' element={<Cart />} />
+
+         
         </Routes>
       </BrowserRouter>
  

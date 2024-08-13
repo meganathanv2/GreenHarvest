@@ -30,7 +30,7 @@ const Login = () => {
       localStorage.setItem("token", response.data.token);
       dispatch(addtoToken(response.data.token));
       toast.success("Login successful!");
-      // navigate('/');
+      navigate('/');
     } catch (error) {
       toast.error("Login failed. Please check your credentials.");
     }

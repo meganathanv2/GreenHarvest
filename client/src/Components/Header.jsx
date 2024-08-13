@@ -4,8 +4,8 @@ import './Header.css';
 import { useSelector } from 'react-redux';
 
 const Header = (props) => {
-  const cartItem = useSelector(state => state.cart.cartItems);
-  const token=useSelector((state)=>state.Token.token)
+  const cartItem = useSelector(state => state.cart.items.length);
+  const token=useSelector((state)=>state.cart.token)
 
   return (
     <>
@@ -17,7 +17,7 @@ const Header = (props) => {
               <li><Link to='/'>Home</Link></li>
               <li><Link to='/'>MENU</Link></li>
               <li><Link to='/'>ABOUT</Link></li>
-              <li><Link to='/cart' className='cart-link' data-count={0}>CART</Link></li>
+              <li><Link to='/cart' className='cart-link' data-count={cartItem}>CART</Link></li>
               {!token?<li><Link to='/login'>LOGIN</Link></li>:<li onClick={
                 ()=>localStorage.removeItem('token')
               } className='logout'>Logout</li>}

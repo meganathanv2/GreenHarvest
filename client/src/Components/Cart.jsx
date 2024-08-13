@@ -1,29 +1,48 @@
-import React from 'react';
-import CartCard from './CartCard';
-import { useSelector } from 'react-redux';
-import './Cart.css';
+import { useState } from "react";
+import { useEffect } from "react";  
+import axios from "axios";  
+import CartCard from "./CartCard";
+import { useSelector } from "react-redux";
+
+
 
 const Cart = () => {
-  const cartItems = useSelector((state) => state.cart.items);
+  const [cartItems, setCartItems] = useState([]);
+ const token=useSelector((state)=>state.cart.token)
 
-  const subtotal = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-  const deliveryFee = 1; 
-  const total = subtotal + deliveryFee;
+  useEffect(() => {
+    const fetchCartItems = async () => {
+      if(token){
+        try {
+        
+          const response = await axios.get("http://localhost:3000/cart/get",{
+            
+              headers:{
+                Authorization:`Bearer ${token}`
+              }
+            
+          });
+          console.log("API Response:", response);
+          setCartItems(response.data.products || []);
+        } catch (err) {
+          console.error("Error fetching products:", err);
+        }
+      }
+    
+    };
+
+    fetchCartItems();
+  }, []);
 
   return (
-    <div className="cart-container">
-      <div className="left-container">
-        {cartItems.map((item) => (
-          <CartCard key={item.id} item={item} />
-        ))}
-      </div>
-      <div className="right-container">
-        <div className="header">Price Details</div>
-        <div className="sub-total">SubTotal: ${subtotal.toFixed(2)}</div>
-        <div className="items-count">({cartItems.length} items)</div>
-        <div className="delivery-fees">Delivery Fees: ${deliveryFee.toFixed(2)}</div>
-        <div className="total">Total: ${total.toFixed(2)}</div>
-      </div>
+    <div className="cart">
+      {cartItems.length > 0 ? (
+        cartItems.map((product, index) => (
+          <CartCard key={index} item={product} />
+        ))
+      ) : (
+        <p>No products available</p>
+      )}
     </div>
   );
 };

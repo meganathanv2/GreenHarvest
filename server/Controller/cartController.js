@@ -3,7 +3,8 @@ const Product = require('../Models/productModel');
 
 const addToCart = async (req, res) => {
   try {
-    const userId = req.user;
+    const userId = req.user.id;
+    console.log(userId)
     const { productId, quantity } = req.body;
     
     let userCart = await Cart.findOne({ userId });
@@ -32,7 +33,7 @@ const addToCart = async (req, res) => {
 
 const getItem = async (req, res) => {
   try {
-    const userId = req.user;
+    const userId = req.user.id;
     const userCart = await Cart.findOne({ userId });
 
     if (userCart) {
@@ -41,13 +42,13 @@ const getItem = async (req, res) => {
 
       for (const item of userCart.products) {
         const product = await Product.findOne({ id: item.productId });
-
+        console.log(product)
         if (product) {
           const totalAmount = product.price * item.quantity;
           totalPrice += totalAmount;
 
           productDetails.push({
-            title: product.title,
+            name: product.name,
             description: product.description,
             price: product.price,
             category: product.category,
@@ -70,8 +71,8 @@ const getItem = async (req, res) => {
 
 const deleteProduct = async (req, res) => {
   try {
-    const productId = req.params.id;
-    const userId = req.user;
+    const productId = req.body;
+    const userId = req.user.id;
     const userCart = await Cart.findOne({ userId });
 
     if (!userCart) {

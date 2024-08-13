@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 const Product = () => {
   const [products, setProducts] = useState([]);
-  const token=useSelector((state)=>state.Token.token)
+  const token=useSelector((state)=>state.cart.token)
   
 
   useEffect(() => {

@@ -1,0 +1,70 @@
+/* CartCard.css */
+
+.cart-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .cart-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-image {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+  }
+  
+  .cart-name,
+  .cart-price,
+  .cart-quantity,
+  .cart-subtotal {
+    margin: 0 15px;
+    flex-grow: 1;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .cart-name {
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .cart-price,
+  .cart-quantity,
+  .cart-subtotal {
+    color: #777;
+  }
+  
+  .cart-subtotal {
+    font-weight: 600;
+    color: #000;
+  }
+  
+  .cart-button {
+    padding: 8px 15px;
+    background-color: #ff595e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 14px;
+  }
+  
+  .cart-button:hover {
+    background-color: #ff4040;
+    transform: scale(1.05);
+  }
+  

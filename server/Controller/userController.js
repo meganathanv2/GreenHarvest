@@ -32,7 +32,7 @@ const login=async (req,res)=>{
        }
        const isPasswordCorrect=bcrypt.compareSync(password,exists.password);
        if(isPasswordCorrect){
-              const token=jwt.sign({id:exists.id,role:exists.role},'secret key',{expiresIn:'1h'});
+              const token=jwt.sign({id:exists._id,role:exists.role},'secret key',{expiresIn:'1h'});
                 res.status(200).json({message:"Login Success",token});
        }
     }catch(err){

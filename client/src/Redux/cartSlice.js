@@ -4,6 +4,7 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState: {
     items: [],
+    token:null
   },
   reducers: {
     addToCart: (state, action) => {
@@ -12,17 +13,12 @@ const cartSlice = createSlice({
     removeItem: (state, action) => {
       state.items = state.items.filter(item => item.id !== action.payload.id);
     },
-  },
-    name:'Token',
-    initialState:{
-      token:null,
-    },
-    reducers:{
-      addtoToken:(state,action)=>{
-        state.token=(action.payload);
-      }
+    addtoToken:(state,action)=>{ 
+      state.token=action.payload
     }
-});
+  },
+}
+);
 
 export const { addToCart, removeItem,addtoToken } = cartSlice.actions;
 export default cartSlice.reducer;
