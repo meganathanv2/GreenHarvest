@@ -9,6 +9,9 @@ import Login from './Components/Login';
 import SignUp from './Components/SignUp';
 import { ToastContainer, toast } from 'react-toastify';
 import Cart from './Components/Cart';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
 
 
 
@@ -16,6 +19,13 @@ import Cart from './Components/Cart';
 function App() {
   const [cart, setCart] = useState([])
   const token=useSelector((state)=>state.cart.token)
+  const dispatch=useDispatch()
+  useEffect(()=>{
+    const token=localStorage.getItem("token")
+    if(token){
+      dispatch(addtoToken(token))
+    }
+},[])
 
 
   return (
@@ -34,5 +44,6 @@ function App() {
  
   )
 }
+import { addtoToken } from './Redux/cartSlice';
 
 export default App

@@ -8,12 +8,14 @@ const CartCard = (props) => {
   const handleRemoveFromCart = async (id) => {
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:3000/cart/delete",{id},{
+      console.log(id)
+      const response = await axios.post("http://localhost:3000/cart/delete",{productId:id},{
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
       });
       console.log('Removed from Cart', response);
+     
       
       if (props.onRemove) {
         props.onRemove(id);
@@ -35,7 +37,7 @@ const CartCard = (props) => {
       <p className='cart-subtotal'>Subtotal: ${props.item.amount.toFixed(2)}</p>
       <button 
         className='cart-button' 
-        onClick={() => handleRemoveFromCart(props.item.name)} 
+        onClick={() => handleRemoveFromCart(props.item.id)} 
         disabled={loading}
       >
         {loading ? 'Removing...' : 'Remove from Cart'}

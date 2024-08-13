@@ -48,6 +48,7 @@ const getItem = async (req, res) => {
           totalPrice += totalAmount;
 
           productDetails.push({
+            id:product.id,
             name: product.name,
             description: product.description,
             price: product.price,
@@ -70,8 +71,8 @@ const getItem = async (req, res) => {
 };
 
 const deleteProduct = async (req, res) => {
-  try {
-    const productId = req.body;
+ 
+    const {productId} = req.body;
     const userId = req.user.id;
     const userCart = await Cart.findOne({ userId });
 
@@ -79,24 +80,17 @@ const deleteProduct = async (req, res) => {
       return res.status(404).json({ error: "Cart not found" });
     }
 
-    const productIndex = userCart.products.findIndex(p => p.productId.toString() === productId);
-
-    if (productIndex !== -1) {
-      if (userCart.products.length <= 1) {
-        await Cart.deleteOne({ userId });
-        return res.status(200).json({ msg: "Cart deleted successfully" });
-      } else {
-        userCart.products.splice(productIndex, 1);
-        await userCart.save();
-        return res.status(200).json({ msg: "Product deleted successfully" });
+    console.log(userCart.products)
+  
+    const arr=userCart.products.filter((item)=>{
+      if(item.productId!=productId){
+          return item.productId
       }
-    }
-
-    res.status(404).json({ msg: "Product not found in the cart" });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ msg: "Internal server error" });
-  }
+  })
+  console.log(arr)
+  userCart.products=arr
+  await userCart.save()
+  res.send(userCart)
 };
 
 module.exports = { addToCart, getItem, deleteProduct };

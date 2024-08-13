@@ -1,7 +1,9 @@
 const mongoose=require('mongoose');
 
 const productModel=new mongoose.Schema({
-    
+    id:{
+        type:String
+    },
     name:{
         type:String,
         required:true

@@ -17,7 +17,6 @@ const Product = () => {
     try {
       const response = await axios.get("http://localhost:3000/product/getproduct");
       console.log("API Response:", response);
-      console.log(token)
       setProducts(response.data.product);
       console.log("Products state:", response.data);
     } catch (err) {
