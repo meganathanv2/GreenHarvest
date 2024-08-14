@@ -28,6 +28,7 @@ const CartCard = (props) => {
   };
 
   return (
+    <>
     <div className='cart-card'>
       {console.log(props.item)}
       <img src={props.item.image} alt={props.item.name} className='cart-image' />
@@ -42,7 +43,10 @@ const CartCard = (props) => {
       >
         {loading ? 'Removing...' : 'Remove from Cart'}
       </button>
+      
     </div>
+    {/* <button className='check-out'><a href='/order'>CheckOut</a></button> */}
+    </>
   );
 };
 

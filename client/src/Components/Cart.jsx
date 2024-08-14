@@ -43,6 +43,10 @@ const Cart = () => {
       ) : (
         <p>No products available</p>
       )}
+      {cartItems.length > 0 && (
+        <button className='check-out'><a href='/order'>Checkout</a></button>
+      )}
+     
     </div>
   );
 };

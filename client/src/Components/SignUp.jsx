@@ -52,13 +52,6 @@ function SignUp() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div className="input-group">
-            <label>Role Name</label>
-            <select value={role} onChange={(e) => setRole(e.target.value)}>
-              <option value="User">User</option>
-              <option value="Admin">Admin</option>
-            </select>
-          </div>
           <button type="submit" className="signup-button">Sign me up</button>
           <p>Already have an account? <a href="/login">Sign in</a></p>
         </div>

@@ -56,4 +56,21 @@
       width: 100%;
     }
   }
+ 
+  
+  .check-out {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .check-out a {
+    color: white;
+    text-decoration: none;
+  }
+  
   

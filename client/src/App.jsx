@@ -11,6 +11,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import Cart from './Components/Cart';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import OrderForm from './Components/OrderForm';
 
 
 
@@ -37,6 +38,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/order' element={<OrderForm />} />
 
          
         </Routes>
